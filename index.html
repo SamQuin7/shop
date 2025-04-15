@@ -13,19 +13,20 @@
       overflow-x: hidden;
     }
     body {
-      background: url('https://i.pinimg.com/originals/46/5a/3d/465a3d0703fdd4c804f0dba25f7f5e19.gif') center center/cover no-repeat fixed;
+      background: url('https://starwalk.space/gallery/images/what-is-space/1920x1080.jpg') center center/cover no-repeat fixed;
       color: #fff;
       text-align: center;
       scroll-behavior: smooth;
+      transition: background-color 1s ease-in-out;
     }
     section {
-      transition: background 1s ease-in-out, color 1s ease-in-out;
       padding: 40px 20px;
+      transition: background-color 1s ease-in-out;
     }
-    section:nth-of-type(odd) {
+    section.power-perks {
       background-color: rgba(0, 0, 20, 0.8);
     }
-    section:nth-of-type(even) {
+    section.ability-perks {
       background-color: rgba(10, 10, 30, 0.8);
     }
     header {
@@ -121,7 +122,7 @@
     <h1>🌌 Perks Shop 🌌</h1>
   </header>
 
-  <section>
+  <section class="power-perks">
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
       <div class="item">
@@ -147,7 +148,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="ability-perks">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
       <div class="item">
@@ -164,7 +165,25 @@
   </section>
 
   <footer>
-    © 2025 Harlequin's Perks Shop. All rights reserved.
+    &copy; 2025 Harlequin VC Shop. All rights reserved.
   </footer>
+
+  <script>
+    const body = document.body;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const powerPerks = document.querySelector('.power-perks');
+      const abilityPerks = document.querySelector('.ability-perks');
+
+      const powerTop = powerPerks.offsetTop;
+      const abilityTop = abilityPerks.offsetTop;
+
+      if (scrollTop >= abilityTop - 100) {
+        body.style.backgroundColor = 'rgba(10, 10, 30, 0.9)';
+      } else {
+        body.style.backgroundColor = 'rgba(0, 0, 20, 0.9)';
+      }
+    });
+  </script>
 </body>
 </html>
