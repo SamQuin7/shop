@@ -8,27 +8,28 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRN+2wIPkWXZVk2aSj+z+2xGP6JkF0H8hqYPbtyuUIBq+yw6e6gopbV+d0nI6zkc5XYlQA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --bg-color: rgba(10, 10, 30, 0.85);
-      --item-bg: rgba(30, 30, 60, 0.9);
-      --text-color: #fff;
+      --bg-color: #000; /* Black background */
+      --item-bg: #222; /* Dark gray for items */
+      --text-color: #fff; /* White text */
+      --highlight-color: gold; /* Gold for highlights */
     }
     [data-theme="dark"] {
-      --bg-color: rgba(10, 10, 30, 0.85);
-      --item-bg: rgba(30, 30, 60, 0.9);
+      --bg-color: #000;
+      --item-bg: #222;
       --text-color: #fff;
+      --highlight-color: gold;
     }
     [data-theme="light"] {
-      --bg-color: #f0f0f0;
-      --item-bg: #fff;
-      --text-color: #111;
+      --bg-color: #fff; /* White background */
+      --item-bg: #f0f0f0; /* Light gray for items */
+      --text-color: #000; /* Black text */
+      --highlight-color: gold; /* Gold for highlights */
     }
     html, body {
       margin: 0;
       padding: 0;
       font-family: 'Orbitron', sans-serif;
       overflow-x: hidden;
-      background: url('https://cdn.discordapp.com/attachments/855567929458556988/1361975356227190885/860DDB67-380F-4038-9EDB-7CCBD28B1A12.png?ex=6800b5e5&is=67ff6465&hm=9bc681f4ed48845aa98651a1ef0e94a32ad6f94a9607fd0e55cf3cb55e982cfc&') center center/cover no-repeat fixed;
-      scroll-behavior: smooth;
       background-color: var(--bg-color);
       color: var(--text-color);
     }
@@ -41,12 +42,12 @@
     }
     header img:hover {
       transform: scale(1.1);
-      filter: drop-shadow(0 0 20px #fff) brightness(1.4);
+      filter: drop-shadow(0 0 20px var(--highlight-color)) brightness(1.4);
     }
     header h1 {
-      color: #f1c40f;
+      color: var(--highlight-color);
       font-size: 2.5rem;
-      text-shadow: 0 0 10px #fff;
+      text-shadow: 0 0 10px var(--highlight-color);
       margin: 0;
       text-align: center; /* Center the main title */
     }
@@ -60,8 +61,8 @@
     h2.section-title {
       font-size: 2rem;
       margin-bottom: 30px;
-      color: #f1c40f;
-      text-shadow: 0 0 8px #fff;
+      color: var(--highlight-color);
+      text-shadow: 0 0 8px var(--highlight-color);
       text-align: center; /* Center the section titles */
     }
     .shop {
@@ -74,11 +75,11 @@
     }
     .item {
       background: var(--item-bg);
-      border: 1px solid #8a2be2;
+      border: 1px solid var(--highlight-color);
       border-radius: 10px;
       padding: 30px;
       width: 300px;
-      box-shadow: 0 4px 25px #8a2be2aa;
+      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.5); /* Gold shadow */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -87,21 +88,21 @@
     }
     .item:hover {
       transform: translateY(-10px);
-      box-shadow: 0 8px 30px #8a2be2ee;
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.7); /* Gold shadow on hover */
     }
     .item h3 {
       margin: 10px 0;
-      color: #b19cd9;
+      color: var(--highlight-color);
       font-size: 1.5rem;
     }
     .item p {
       font-size: 1.1rem;
-      color: #e0e0ff;
+      color: #e0e0e0; /* Light gray for description */
     }
     .buy-btn {
-      background: linear-gradient(135deg, #000, #444);
+      background: var(--highlight-color);
       border: none;
-      color: white;
+      color: black;
       padding: 10px 20px;
       font-size: 1rem;
       border-radius: 5px;
@@ -109,16 +110,10 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    #power .buy-btn {
-      background: linear-gradient(135deg, gold, goldenrod);
-    }
-    #power .buy-btn:hover {
-      background: linear-gradient(135deg, goldenrod, gold);
+    .buy-btn:hover {
+      background: gold; /* Brighten on hover */
       transform: scale(1.1);
       box-shadow: 0 0 20px gold;
-    }
-    .buy-btn:hover {
-      transform: scale(1.1);
     }
     footer {
       margin: 50px 0 20px;
@@ -130,7 +125,7 @@
       text-align: center; /* Center the links */
     }
     .links a {
-      color: #f1c40f;
+      color: var(--highlight-color);
       margin: 0 10px;
       cursor: pointer;
     }
