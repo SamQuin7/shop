@@ -12,15 +12,12 @@
       padding: 0;
       font-family: 'Orbitron', sans-serif;
       overflow-x: hidden;
+      background: url('https://cdn.discordapp.com/attachments/855567929458556988/1361975356227190885/860DDB67-380F-4038-9EDB-7CCBD28B1A12.png?ex=6800b5e5&is=67ff6465&hm=9bc681f4ed48845aa98651a1ef0e94a32ad6f94a9607fd0e55cf3cb55e982cfc&') center center/cover no-repeat fixed;
     }
     body {
-      background: url('https://cdn.discordapp.com/attachments/855567929458556988/1361975356227190885/860DDB67-380F-4038-9EDB-7CCBD28B1A12.png?ex=6800b5e5&is=67ff6465&hm=9bc681f4ed48845aa98651a1ef0e94a32ad6f94a9607fd0e55cf3cb55e982cfc&') center center/cover no-repeat fixed;
       color: #fff;
       text-align: center;
       scroll-behavior: smooth;
-    }
-    header {
-      position: relative;
     }
     header img {
       max-height: 120px;
@@ -40,9 +37,15 @@
       margin: 0;
     }
     section {
-      transition: background 1s ease-in-out, color 1s ease-in-out;
       padding: 40px 20px;
-      background-color: rgba(10, 10, 30, 0.8);
+      transition: background 1s ease-in-out, color 1s ease-in-out;
+      background-color: rgba(10, 10, 30, 0.85);
+    }
+    section#power {
+      background-color: rgba(20, 10, 40, 0.85);
+    }
+    section#ability {
+      background-color: rgba(10, 20, 40, 0.85);
     }
     h2.section-title {
       font-size: 2rem;
@@ -100,31 +103,28 @@
       box-shadow: 0 0 15px #fff;
     }
     .item.power .buy-btn {
-      background: linear-gradient(135deg, #ffd700, #ffcc00);
+      background: linear-gradient(135deg, gold, orange);
       color: #000;
     }
     .footer {
       background: rgba(0, 0, 0, 0.7);
       padding: 20px;
-      color: #aaa;
       font-size: 0.9rem;
     }
-    .footer a {
-      color: #00bfff;
+    .support {
+      display: block;
+      margin-top: 10px;
+      color: #0af;
       text-decoration: none;
     }
-    .footer a:hover {
-      text-shadow: 0 0 5px #00bfff;
-    }
-    @media screen and (max-width: 768px) {
-      header h1 { font-size: 2rem; }
-      .item { width: 90%; }
+    .support:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6800b34c&is=67ff61cc&hm=e66cb075c0cec49e2ab800be8c7268b8594ca8dd972b9aabc4ce3668e2f86c8e&" alt="Server Logo">
+    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6800b34c&is=67ff61cc&hm=e66cb075c0cec49e2ab800be8c7268b8594ca8dd972b9aabc4ce3668e2f86c8e&" />
     <h1>Perks Shop</h1>
   </header>
 
@@ -134,22 +134,22 @@
       <div class="item power">
         <h3>VC Mod</h3>
         <p>$15/month</p>
-        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" class="buy-btn">Subscribe</a>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" target="_blank"><button class="buy-btn">Subscribe</button></a>
       </div>
       <div class="item power">
         <h3>Mod</h3>
         <p>$30/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
       <div class="item power">
         <h3>Senior Mod</h3>
         <p>$60/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
       <div class="item power">
         <h3>Co-Owner</h3>
         <p>$960/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
     </div>
   </section>
@@ -160,20 +160,20 @@
       <div class="item">
         <h3>Image Perms</h3>
         <p>$3/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
       <div class="item">
         <h3>Custom Role</h3>
         <p>$3/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
     </div>
   </section>
 
-  <div class="footer">
-    <p>Support: <a href="https://discord.gg/sunni" target="_blank">discord.gg/sunni</a></p>
-    <p>© All rights reserved to Joseph</p>
+  <footer class="footer">
+    <a class="support" href="https://discord.gg/sunni" target="_blank">Support Server</a>
+    <p>© Joseph. All rights reserved.</p>
     <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
-  </div>
+  </footer>
 </body>
 </html>
