@@ -66,6 +66,20 @@
       align-items: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    .item.power {
+      border: 1px solid gold;
+      background: rgba(50, 40, 10, 0.9);
+      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.6);
+    }
+    .item.power:hover {
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.9);
+    }
+    .item.power h3 {
+      color: gold;
+    }
+    .item.power p {
+      color: #fceabb;
+    }
     .item:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 30px #8a2be2ee;
@@ -80,6 +94,7 @@
       color: #e0e0ff;
     }
     .buy-btn {
+      background: linear-gradient(45deg, #8a2be2, #4b0082);
       color: #fff;
       padding: 12px 25px;
       border: none;
@@ -94,20 +109,16 @@
       transition: background 0.3s ease, transform 0.3s ease;
     }
     .buy-btn:hover {
+      background: linear-gradient(45deg, #4b0082, #8a2be2);
       transform: scale(1.05);
     }
-    .power .buy-btn {
-      background: linear-gradient(45deg, #FFD700, #B8860B);
-      box-shadow: 0 0 20px #FFD700;
+    .item.power .buy-btn {
+      background: linear-gradient(45deg, gold, goldenrod);
+      color: #000;
+      box-shadow: 0 4px 20px gold;
     }
-    .power .buy-btn:hover {
-      background: linear-gradient(45deg, #B8860B, #FFD700);
-    }
-    .ability .buy-btn {
-      background: linear-gradient(45deg, #8a2be2, #4b0082);
-    }
-    .ability .buy-btn:hover {
-      background: linear-gradient(45deg, #4b0082, #8a2be2);
+    .item.power .buy-btn:hover {
+      background: linear-gradient(45deg, goldenrod, gold);
     }
     footer {
       padding: 20px;
@@ -127,44 +138,44 @@
     <h1>🌌 Perks Shop 🌌</h1>
   </header>
 
-  <section class="power">
+  <section>
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
-      <div class="item">
+      <div class="item power">
         <h3>VC Mod</h3>
-        <p>$15/month</p>
-        <a class="buy-btn" href="#">Buy Now</a>
+        <p>$15 / month</p>
+        <a class="buy-btn" href="#">Subscribe</a>
       </div>
-      <div class="item">
+      <div class="item power">
         <h3>Mod</h3>
-        <p>$30/month</p>
-        <a class="buy-btn" href="#">Buy Now</a>
+        <p>$30 / month</p>
+        <a class="buy-btn" href="#">Subscribe</a>
       </div>
-      <div class="item">
+      <div class="item power">
         <h3>Senior Mod</h3>
-        <p>$60/month</p>
-        <a class="buy-btn" href="#">Buy Now</a>
+        <p>$60 / month</p>
+        <a class="buy-btn" href="#">Subscribe</a>
       </div>
-      <div class="item">
+      <div class="item power">
         <h3>Co-Owner</h3>
-        <p>$960/month</p>
-        <a class="buy-btn" href="#">Buy Now</a>
+        <p>$960 / month</p>
+        <a class="buy-btn" href="#">Subscribe</a>
       </div>
     </div>
   </section>
 
-  <section class="ability">
+  <section>
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
       <div class="item">
         <h3>Image Perms</h3>
-        <p>$3/month</p>
-        <a class="buy-btn" href="#">Buy Now</a>
+        <p>$3 / month</p>
+        <a class="buy-btn" href="#">Subscribe</a>
       </div>
       <div class="item">
         <h3>Custom Role</h3>
-        <p>$3/month</p>
-        <a class="buy-btn" href="#">Buy Now</a>
+        <p>$3 / month</p>
+        <a class="buy-btn" href="#">Subscribe</a>
       </div>
     </div>
   </section>
