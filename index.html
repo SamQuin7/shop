@@ -67,18 +67,19 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .item.power {
-      border: 1px solid gold;
-      background: rgba(50, 40, 10, 0.9);
-      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.6);
+      border: 1px solid #d4af37;
+      background: rgba(50, 30, 80, 0.95);
+      box-shadow: 0 4px 25px rgba(212, 175, 55, 0.8);
     }
     .item.power:hover {
-      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.9);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 1);
     }
     .item.power h3 {
-      color: gold;
+      color: #ffcc70;
+      text-shadow: 0 0 10px #ffcc70;
     }
     .item.power p {
-      color: #fceabb;
+      color: #ffeaa7;
     }
     .item:hover {
       transform: translateY(-10px);
@@ -115,73 +116,59 @@
     .item.power .buy-btn {
       background: linear-gradient(45deg, gold, goldenrod);
       color: #000;
-      box-shadow: 0 4px 20px gold;
+      box-shadow: 0 4px 15px #d4af37aa;
     }
     .item.power .buy-btn:hover {
-      background: linear-gradient(45deg, goldenrod, gold);
-    }
-    footer {
-      padding: 20px;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 768px) {
-      .item {
-        width: 90%;
-      }
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
   <header>
     <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361657882684424315/image_2025-04-15_042530282-removebg-preview.png?ex=680036f9&is=67fee579&hm=0dc232252cbf8299cd59f4633e08ab10c1aa2101a1f5b77d28a2e497a930d55e&">
-    <h1>🌌 Perks Shop 🌌</h1>
+    <h1>Perks Shop</h1>
   </header>
 
-  <section>
+  <section id="power-perks">
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
       <div class="item power">
         <h3>VC Mod</h3>
-        <p>$15 / month</p>
-        <a class="buy-btn" href="#">Subscribe</a>
+        <p>$15/month</p>
+        <a class="buy-btn" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" target="_blank">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Mod</h3>
-        <p>$30 / month</p>
-        <a class="buy-btn" href="#">Subscribe</a>
+        <p>$30/month</p>
+        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Senior Mod</h3>
-        <p>$60 / month</p>
-        <a class="buy-btn" href="#">Subscribe</a>
+        <p>$60/month</p>
+        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Co-Owner</h3>
-        <p>$960 / month</p>
-        <a class="buy-btn" href="#">Subscribe</a>
+        <p>$960/month</p>
+        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
       </div>
     </div>
   </section>
 
-  <section>
+  <section id="ability-perks">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
       <div class="item">
         <h3>Image Perms</h3>
-        <p>$3 / month</p>
-        <a class="buy-btn" href="#">Subscribe</a>
+        <p>$3/month</p>
+        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
       </div>
       <div class="item">
         <h3>Custom Role</h3>
-        <p>$3 / month</p>
-        <a class="buy-btn" href="#">Subscribe</a>
+        <p>$3/month</p>
+        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
       </div>
     </div>
   </section>
-
-  <footer>
-    &copy; 2025 Harlequin VC Shop. All rights reserved.
-  </footer>
 </body>
 </html>
