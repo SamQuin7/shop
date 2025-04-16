@@ -2,15 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Perks Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRN+2wIPkWXZVk2aSj+z+2xGP6JkF0H8hqYPbtyuUIBq+yw6e6gopbV+d0nI6zkc5XYlQA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --bg-color: rgba(10, 10, 30, 0.85);
       --item-bg: rgba(30, 30, 60, 0.9);
       --text-color: #fff;
+    }
+    [data-theme="dark"] {
+      --bg-color: rgba(10, 10, 30, 0.85);
+      --item-bg: rgba(30, 30, 60, 0.9);
+      --text-color: #fff;
+    }
+    [data-theme="light"] {
+      --bg-color: #f0f0f0;
+      --item-bg: #fff;
+      --text-color: #111;
     }
     html, body {
       margin: 0;
@@ -34,16 +44,16 @@
       filter: drop-shadow(0 0 20px #fff) brightness(1.4);
     }
     header h1 {
-      font-size: 3.2rem;
-      text-align: center;
-      margin: 0;
       color: #f1c40f;
-      text-shadow: 0 0 15px #fff, 0 0 25px #f1c40f, 0 0 35px #f1c40f;
-      letter-spacing: 4px;
-      text-transform: uppercase;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #fff;
+      margin: 0;
     }
     section {
       padding: 40px 20px;
+      background-color: var(--bg-color);
+    }
+    #power, #ability {
       background-color: var(--bg-color);
     }
     h2.section-title {
@@ -60,17 +70,19 @@
       gap: 20px;
       justify-content: center;
     }
-    .item {
-      background: var(--item-bg);
-      border: 1px solid #8a2be2;
-      border-radius: 10px;
-      padding: 30px;
-      width: 300px;
-      box-shadow: 0 4px 25px #8a2be2aa;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+.item {
+  background: var(--item-bg);
+  border: 1px solid #8a2be2;
+  border-radius: 10px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 25px #8a2be2aa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* This line centers the text */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
     }
     .item:hover {
       transform: translateY(-10px);
@@ -96,67 +108,133 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    .buy-btn:hover {
-      background: linear-gradient(135deg, #444, #000);
+    #power .buy-btn {
+      background: linear-gradient(135deg, gold, goldenrod);
+    }
+    #power .buy-btn:hover {
+      background: linear-gradient(135deg, goldenrod, gold);
       transform: scale(1.1);
-      box-shadow: 0 0 20px #555;
+      box-shadow: 0 0 20px gold;
+    }
+    .buy-btn:hover {
+      transform: scale(1.1);
     }
     footer {
-      padding: 20px;
-      text-align: center;
-      background-color: #111;
-      color: #888;
+      margin: 50px 0 20px;
       font-size: 0.9rem;
     }
-    footer a {
-      color: #f1c40f;
-      text-decoration: none;
+    .links {
+      margin-top: 30px;
     }
-    footer a:hover {
-      text-decoration: underline;
+    .links a {
+      color: #f1c40f;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #111;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      text-align: left;
+      position: relative;
+      color: white;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .dark-toggle {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      background: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
     }
   </style>
 </head>
-<body>
+<body data-theme="dark">
+  <div class="dark-toggle" onclick="toggleTheme()">Toggle Theme</div>
   <header>
-    <img src="https://i.imgur.com/4AiXzf8.jpeg" alt="Perks Icon" />
+    <img src="https://cdn.discordapp.com/icons/1226671221406607461/a_1c7e17cb8f3c7f6bb6c37b22e1fbc8b3.gif?size=240" alt="Server Logo">
     <h1>Perks Shop</h1>
   </header>
 
   <section id="power">
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
-      <div class="item">
-        <h3>Super Speed</h3>
-        <p>Grants you insane movement speed in VC.</p>
-        <button class="buy-btn">Buy</button>
-      </div>
-      <div class="item">
-        <h3>Invisibility</h3>
-        <p>Hide your VC presence completely.</p>
-        <button class="buy-btn">Buy</button>
-      </div>
+      <div class="item"><h3>VC Mod</h3><p>$15/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Mod</h3><p>$30/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Senior Mod</h3><p>$60/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Co-Owner</h3><p>$960/month</p><button class="buy-btn">Subscribe</button></div>
     </div>
   </section>
 
   <section id="ability">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
-      <div class="item">
-        <h3>Channel Owner Override</h3>
-        <p>Allows you to override ownership in any VC.</p>
-        <button class="buy-btn">Buy</button>
-      </div>
-      <div class="item">
-        <h3>Mute Immunity</h3>
-        <p>Prevents you from being muted by other users.</p>
-        <button class="buy-btn">Buy</button>
-      </div>
+      <div class="item"><h3>Image Perms</h3><p>$3/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Custom Role</h3><p>$5/month</p><button class="buy-btn">Subscribe</button></div>
     </div>
   </section>
 
+  <div class="links">
+    <a onclick="showModal('tos')">Terms of Service</a>
+    <a onclick="showModal('privacy')">Privacy Policy</a>
+    <a href="https://discord.gg/sunni">Support Discord</a>
+  </div>
+
   <footer>
-    <p>Made with 💜 by Harlequin — <a href="#">Back to Top</a></p>
+    &copy; All rights reserved to Joseph
   </footer>
+
+  <div class="modal" id="tos-modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModal('tos')">&times;</span>
+      <h2>Terms of Service</h2>
+      <p>By purchasing perks, you agree to comply with the rules and terms of our Discord server. All sales are final. Abuse or misuse of perks can lead to removal without refund. We reserve the right to revoke access at any time. Do not attempt to bypass server rules using perks.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="privacy-modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModal('privacy')">&times;</span>
+      <h2>Privacy Policy</h2>
+      <p>Your data is only used to provide and manage your purchased perks. We do not share or sell your data. By using our service, you consent to this privacy policy. For any concerns, reach out via our support server.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.setAttribute('data-theme', body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+    function showModal(type) {
+      document.getElementById(`${type}-modal`).style.display = 'flex';
+    }
+    function hideModal(type) {
+      document.getElementById(`${type}-modal`).style.display = 'none';
+    }
+  </script>
 </body>
 </html>
