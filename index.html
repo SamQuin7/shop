@@ -31,24 +31,13 @@
     }
     header img:hover {
       transform: scale(1.1);
-      filter: drop-shadow(0 0 20px #fff) brightness(1.2);
+      filter: drop-shadow(0 0 20px #fff) brightness(1.4);
     }
     header h1 {
       color: #f1c40f;
       font-size: 2.5rem;
       text-shadow: 0 0 10px #fff;
       margin: 0;
-    }
-    .support {
-      margin: 10px;
-    }
-    .support a {
-      color: #00bfff;
-      font-size: 1rem;
-      text-decoration: none;
-    }
-    .support a:hover {
-      text-shadow: 0 0 5px #00bfff;
     }
     section {
       transition: background 1s ease-in-out, color 1s ease-in-out;
@@ -94,95 +83,97 @@
       font-size: 1.1rem;
       color: #e0e0ff;
     }
-    .item.power {
-      background: rgba(50, 30, 80, 0.95);
-      border: 1px solid #d4af37;
-      box-shadow: 0 4px 25px rgba(212, 175, 55, 0.8);
-    }
-    .item.power h3 {
-      color: #d8b4fe;
-      text-shadow: 0 0 10px #c084fc;
-    }
-    .item.power p {
-      color: #f3e8ff;
-    }
-    .item.power .buy-btn {
-      background: linear-gradient(45deg, gold, #ffcc00);
-      color: #000;
-    }
     .buy-btn {
-      margin-top: 15px;
+      background: linear-gradient(135deg, #8e44ad, #9b59b6);
+      border: none;
+      color: white;
       padding: 10px 20px;
       font-size: 1rem;
-      color: #fff;
-      background-color: #8a2be2;
-      border: none;
       border-radius: 5px;
+      margin-top: 10px;
       cursor: pointer;
-      transition: background 0.3s ease;
-      text-decoration: none;
+      transition: all 0.3s ease;
     }
     .buy-btn:hover {
-      background-color: #a44bff;
+      background: linear-gradient(135deg, #9b59b6, #8e44ad);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #fff;
     }
-    .fade-section {
-      animation: fadeIn 1s ease-in-out;
+    .item.power .buy-btn {
+      background: linear-gradient(135deg, #ffd700, #ffcc00);
+      color: #000;
     }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    .footer {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    .footer a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-shadow: 0 0 5px #00bfff;
+    }
+    @media screen and (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      .item { width: 90%; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6800b34c&is=67ff61cc&hm=e66cb075c0cec49e2ab800be8c7268b8594ca8dd972b9aabc4ce3668e2f86c8e&" />
+    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6800b34c&is=67ff61cc&hm=e66cb075c0cec49e2ab800be8c7268b8594ca8dd972b9aabc4ce3668e2f86c8e&" alt="Server Logo">
     <h1>Perks Shop</h1>
-    <div class="support">
-      <a href="https://discord.gg/sunni" target="_blank">Support Discord: discord.gg/sunni</a>
-    </div>
   </header>
 
-  <section class="fade-section">
+  <section id="power">
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
       <div class="item power">
         <h3>VC Mod</h3>
         <p>$15/month</p>
-        <a class="buy-btn" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" target="_blank">Subscribe</a>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" class="buy-btn">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Mod</h3>
         <p>$30/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <a href="#" class="buy-btn">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Senior Mod</h3>
         <p>$60/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <a href="#" class="buy-btn">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Co-Owner</h3>
         <p>$960/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <a href="#" class="buy-btn">Subscribe</a>
       </div>
     </div>
   </section>
 
-  <section class="fade-section">
+  <section id="ability">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
       <div class="item">
         <h3>Image Perms</h3>
         <p>$3/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <a href="#" class="buy-btn">Subscribe</a>
       </div>
       <div class="item">
         <h3>Custom Role</h3>
         <p>$3/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <a href="#" class="buy-btn">Subscribe</a>
       </div>
     </div>
   </section>
+
+  <div class="footer">
+    <p>Support: <a href="https://discord.gg/sunni" target="_blank">discord.gg/sunni</a></p>
+    <p>© All rights reserved to Joseph</p>
+    <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+  </div>
 </body>
 </html>
