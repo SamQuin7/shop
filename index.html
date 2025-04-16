@@ -12,7 +12,7 @@
       padding: 0;
       font-family: 'Orbitron', sans-serif;
       overflow-x: hidden;
-      background: url('https://media.giphy.com/media/tIeCLkB8geYtW/giphy.gif') center center/cover no-repeat fixed;
+      background: url('https://cdn.discordapp.com/attachments/855567929458556988/1361975356227190885/860DDB67-380F-4038-9EDB-7CCBD28B1A12.png?ex=6800b5e5&is=67ff6465&hm=9bc681f4ed48845aa98651a1ef0e94a32ad6f94a9607fd0e55cf3cb55e982cfc&') center center/cover no-repeat fixed;
       scroll-behavior: smooth;
     }
     body {
@@ -45,7 +45,7 @@
       background-color: rgba(20, 10, 40, 0.85);
     }
     #ability {
-      background-color: rgba(10, 20, 40, 0.85);
+      background-color: rgba(20, 10, 40, 0.85);
     }
     h2.section-title {
       font-size: 2rem;
@@ -87,7 +87,7 @@
       color: #e0e0ff;
     }
     .buy-btn {
-      background: linear-gradient(135deg, gold, goldenrod);
+      background: linear-gradient(135deg, #000, #444);
       border: none;
       color: white;
       padding: 10px 20px;
@@ -97,10 +97,42 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    .buy-btn:hover {
+    #power .buy-btn {
+      background: linear-gradient(135deg, gold, goldenrod);
+    }
+    #power .buy-btn:hover {
       background: linear-gradient(135deg, goldenrod, gold);
       transform: scale(1.1);
       box-shadow: 0 0 20px gold;
+    }
+    .buy-btn:hover {
+      background: linear-gradient(135deg, #444, #000);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #555;
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      z-index: 9999;
+      width: 80%;
+      max-width: 500px;
+    }
+    .popup.active {
+      display: block;
+    }
+    .popup .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 1.5rem;
     }
     footer {
       margin-top: 60px;
@@ -117,56 +149,64 @@
 </head>
 <body>
   <header>
-    <img src="506b0246-6b15-46fe-9e45-509f1c249502.png" alt="Server Logo" />
+    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6800b34c&is=67ff61cc&hm=e66cb075c0cec49e2ab800be8c7268b8594ca8dd972b9aabc4ce3668e2f86c8e&"/>
     <h1>Perks Shop</h1>
   </header>
-
   <section id="power">
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
       <div class="item">
         <h3>VC Mod</h3>
         <p>$15/month</p>
-        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
       <div class="item">
         <h3>Mod</h3>
         <p>$30/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
       <div class="item">
         <h3>Senior Mod</h3>
         <p>$60/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
       <div class="item">
         <h3>Co-Owner</h3>
         <p>$960/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
     </div>
   </section>
-
   <section id="ability">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
       <div class="item">
         <h3>Image Perms</h3>
         <p>$3/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <button class="buy-btn">Subscribe</button>
       </div>
       <div class="item">
         <h3>Custom Role</h3>
-        <p>$5/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <p>$3/month</p>
+        <button class="buy-btn">Subscribe</button>
       </div>
     </div>
   </section>
-
   <footer>
-    <p>Need help? Join our <a href="https://discord.gg/sunni" target="_blank">Support Discord</a></p>
-    <p>&copy; All rights reserved to Joseph</p>
-    <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+    <p>© All rights reserved. Harlequin Shop by Joseph</p>
+    <p><a href="#" onclick="document.getElementById('tos').classList.add('active')">Terms of Service</a> | <a href="#" onclick="document.getElementById('privacy').classList.add('active')">Privacy Policy</a> | <a href="https://discord.gg/sunni" target="_blank">Support Discord</a></p>
   </footer>
+
+  <div class="popup" id="tos">
+    <span class="close" onclick="this.parentElement.classList.remove('active')">×</span>
+    <h2>Terms of Service</h2>
+    <p>These are placeholder terms of service. Customize as needed.</p>
+  </div>
+
+  <div class="popup" id="privacy">
+    <span class="close" onclick="this.parentElement.classList.remove('active')">×</span>
+    <h2>Privacy Policy</h2>
+    <p>These are placeholder privacy terms. Customize as needed.</p>
+  </div>
 </body>
 </html>
