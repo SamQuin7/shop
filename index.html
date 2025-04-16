@@ -55,7 +55,7 @@
       padding: 40px 20px;
       background-color: var(--bg-color);
     }
-    #power, #ability {
+    #power, #ability, #support {
       background-color: var(--bg-color);
     }
     h2.section-title {
@@ -169,6 +169,15 @@
       cursor: pointer;
       z-index: 1000;
     }
+    .slider {
+      width: 100%;
+      margin-top: 20px;
+    }
+    .donation-amount {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: var(--highlight-color);
+    }
   </style>
 </head>
 <body data-theme="dark">
@@ -193,6 +202,19 @@
     <div class="shop">
       <div class="item"><h3>Image Perms</h3><p>$3/month</p><button class="buy-btn">Subscribe</button></div>
       <div class="item"><h3>Custom Role</h3><p>$5/month</p><button class="buy-btn">Subscribe</button></div>
+    </div>
+  </section>
+
+  <section id="support">
+    <h2 class="section-title">Support Us</h2>
+    <div class="shop">
+      <div class="item">
+        <h3>Donation</h3>
+        <p>Your support helps us maintain the server!</p>
+        <input type="range" min="1" max="500" value="1" class="slider" id="donationSlider" oninput="updateDonationAmount(this.value)">
+        <div class="donation-amount" id="donationAmount">$1</div>
+        <button class="buy-btn">Donate</button>
+      </div>
     </div>
   </section>
 
@@ -232,6 +254,9 @@
     }
     function hideModal(type) {
       document.getElementById(`${type}-modal`).style.display = 'none';
+    }
+    function updateDonationAmount(value) {
+      document.getElementById('donationAmount').textContent = `$${value}`;
     }
   </script>
 </body>
