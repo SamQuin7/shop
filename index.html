@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Perks Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRN+2wIPkWXZVk2aSj+z+2xGP6JkF0H8hqYPbtyuUIBq+yw6e6gopbV+d0nI6zkc5XYlQA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     html, body {
       margin: 0;
@@ -18,27 +19,22 @@
       text-align: center;
       scroll-behavior: smooth;
     }
+    header img {
+      max-height: 120px;
+      border-radius: 50%;
+      margin: 20px auto 10px;
+      display: block;
+    }
+    header h1 {
+      color: #f1c40f;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #fff;
+      margin: 0;
+    }
     section {
       transition: background 1s ease-in-out, color 1s ease-in-out;
       padding: 40px 20px;
       background-color: rgba(10, 10, 30, 0.8);
-    }
-    header {
-      padding: 20px;
-    }
-    header img {
-      max-height: 120px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    header h1 {
-      margin: 0;
-      color: #f1c40f;
-      font-size: 2.5rem;
-      text-shadow: 0 0 10px #fff;
     }
     h2.section-title {
       font-size: 2rem;
@@ -66,21 +62,6 @@
       align-items: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .item.power {
-      border: 1px solid #d4af37;
-      background: rgba(50, 30, 80, 0.95);
-      box-shadow: 0 4px 25px rgba(212, 175, 55, 0.8);
-    }
-    .item.power:hover {
-      box-shadow: 0 8px 30px rgba(212, 175, 55, 1);
-    }
-    .item.power h3 {
-      color: #ffcc70;
-      text-shadow: 0 0 10px #ffcc70;
-    }
-    .item.power p {
-      color: #ffeaa7;
-    }
     .item:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 30px #8a2be2ee;
@@ -94,6 +75,23 @@
       font-size: 1.1rem;
       color: #e0e0ff;
     }
+    .item.power {
+      background: rgba(50, 30, 80, 0.95);
+      border: 1px solid #d4af37;
+      box-shadow: 0 4px 25px rgba(212, 175, 55, 0.8);
+    }
+    .item.power h3 {
+      color: #ffcc70;
+      text-shadow: 0 0 10px #ffcc70;
+    }
+    .item.power p {
+      color: #ffeaa7;
+    }
+    .item.power .buy-btn {
+      background: linear-gradient(45deg, gold, goldenrod);
+      color: #000;
+      box-shadow: 0 4px 15px #00000066;
+    }
     .buy-btn {
       background: linear-gradient(45deg, #8a2be2, #4b0082);
       color: #fff;
@@ -106,20 +104,27 @@
       text-decoration: none;
       display: inline-block;
       margin-top: 15px;
-      box-shadow: 0 4px 15px #00000066;
       transition: background 0.3s ease, transform 0.3s ease;
     }
     .buy-btn:hover {
       background: linear-gradient(45deg, #4b0082, #8a2be2);
       transform: scale(1.05);
     }
-    .item.power .buy-btn {
-      background: linear-gradient(45deg, gold, goldenrod);
-      color: #000;
-      box-shadow: 0 4px 15px #d4af37aa;
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #bbb;
     }
-    .item.power .buy-btn:hover {
-      transform: scale(1.05);
+    .chat-support {
+      margin-top: 50px;
+    }
+    .chat-support a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .chat-support a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -129,46 +134,69 @@
     <h1>Perks Shop</h1>
   </header>
 
-  <section id="power-perks">
+  <section id="power">
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
       <div class="item power">
         <h3>VC Mod</h3>
         <p>$15/month</p>
-        <a class="buy-btn" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" target="_blank">Subscribe</a>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" class="buy-btn">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Mod</h3>
         <p>$30/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <a href="#" class="buy-btn">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Senior Mod</h3>
         <p>$60/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <a href="#" class="buy-btn">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Co-Owner</h3>
         <p>$960/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <a href="#" class="buy-btn">Subscribe</a>
       </div>
     </div>
   </section>
 
-  <section id="ability-perks">
+  <section id="ability">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
       <div class="item">
         <h3>Image Perms</h3>
         <p>$3/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <a href="#" class="buy-btn">Buy Now</a>
       </div>
       <div class="item">
         <h3>Custom Role</h3>
-        <p>$3/month</p>
-        <a class="buy-btn" href="#" target="_blank">Subscribe</a>
+        <p>$5/month</p>
+        <a href="#" class="buy-btn">Buy Now</a>
       </div>
     </div>
   </section>
+
+  <div class="chat-support">
+    <p>Need help or have questions? <a href="https://discord.gg/your-server-link" target="_blank">Join our Discord</a></p>
+  </div>
+
+  <footer>
+    <p>© 2025 Harlequin VC Shop. All rights reserved.</p>
+    <p><a href="#" style="color:#999">Terms of Service</a> | <a href="#" style="color:#999">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    const powerSection = document.getElementById('power');
+    const abilitySection = document.getElementById('ability');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const abilityTop = abilitySection.offsetTop;
+      if (scrollY > abilityTop - 100) {
+        document.body.style.backgroundColor = '#0c0c1f';
+      } else {
+        document.body.style.backgroundColor = '#000011';
+      }
+    });
+  </script>
 </body>
 </html>
