@@ -13,11 +13,11 @@
       font-family: 'Orbitron', sans-serif;
       overflow-x: hidden;
       background: url('https://media.giphy.com/media/tIeCLkB8geYtW/giphy.gif') center center/cover no-repeat fixed;
+      scroll-behavior: smooth;
     }
     body {
       color: #fff;
       text-align: center;
-      scroll-behavior: smooth;
     }
     header img {
       max-height: 120px;
@@ -41,10 +41,10 @@
       transition: background 1s ease-in-out, color 1s ease-in-out;
       background-color: rgba(10, 10, 30, 0.85);
     }
-    section#power {
+    #power {
       background-color: rgba(20, 10, 40, 0.85);
     }
-    section#ability {
+    #ability {
       background-color: rgba(10, 20, 40, 0.85);
     }
     h2.section-title {
@@ -87,7 +87,7 @@
       color: #e0e0ff;
     }
     .buy-btn {
-      background: linear-gradient(135deg, #8e44ad, #9b59b6);
+      background: linear-gradient(135deg, gold, goldenrod);
       border: none;
       color: white;
       padding: 10px 20px;
@@ -98,54 +98,75 @@
       transition: all 0.3s ease;
     }
     .buy-btn:hover {
-      background: linear-gradient(135deg, #9b59b6, #8e44ad);
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #fff;
+      background: linear-gradient(135deg, goldenrod, gold);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px gold;
     }
     footer {
-      margin-top: 40px;
+      margin-top: 60px;
       padding: 20px;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.7);
+      color: #ccc;
       font-size: 0.9rem;
     }
-    .tos {
-      font-size: 0.8rem;
-      color: #aaa;
-      margin-top: 10px;
-    }
-    .support-link {
+    footer a {
       color: #f1c40f;
-      display: inline-block;
-      margin-top: 10px;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://cdn.discordapp.com/icons/123456789012345678/yourservericon.png" alt="Server Logo">
+    <img src="506b0246-6b15-46fe-9e45-509f1c249502.png" alt="Server Logo" />
     <h1>Perks Shop</h1>
   </header>
 
-  <!-- Sections here -->
+  <section id="power">
+    <h2 class="section-title">Power Perks</h2>
+    <div class="shop">
+      <div class="item">
+        <h3>VC Mod</h3>
+        <p>$15/month</p>
+        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" class="buy-btn">Subscribe</a>
+      </div>
+      <div class="item">
+        <h3>Mod</h3>
+        <p>$30/month</p>
+        <a href="#" class="buy-btn">Subscribe</a>
+      </div>
+      <div class="item">
+        <h3>Senior Mod</h3>
+        <p>$60/month</p>
+        <a href="#" class="buy-btn">Subscribe</a>
+      </div>
+      <div class="item">
+        <h3>Co-Owner</h3>
+        <p>$960/month</p>
+        <a href="#" class="buy-btn">Subscribe</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ability">
+    <h2 class="section-title">Ability Perks</h2>
+    <div class="shop">
+      <div class="item">
+        <h3>Image Perms</h3>
+        <p>$3/month</p>
+        <a href="#" class="buy-btn">Subscribe</a>
+      </div>
+      <div class="item">
+        <h3>Custom Role</h3>
+        <p>$5/month</p>
+        <a href="#" class="buy-btn">Subscribe</a>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <div>© All rights reserved to Joseph</div>
-    <div class="tos">
-      <p>By purchasing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
-    </div>
-    <div><a class="support-link" href="https://discord.gg/sunni" target="_blank">Support Discord</a></div>
+    <p>Need help? Join our <a href="https://discord.gg/sunni" target="_blank">Support Discord</a></p>
+    <p>&copy; All rights reserved to Joseph</p>
+    <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
   </footer>
-
-  <audio id="hoverSound" src="https://www.myinstants.com/media/sounds/pop-up-katana.mp3" preload="auto"></audio>
-  <script>
-    const buttons = document.querySelectorAll('.buy-btn');
-    const sound = document.getElementById('hoverSound');
-    buttons.forEach(btn => {
-      btn.addEventListener('mouseenter', () => {
-        sound.currentTime = 0;
-        sound.play();
-      });
-    });
-  </script>
 </body>
 </html>
