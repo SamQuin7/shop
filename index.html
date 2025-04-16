@@ -7,6 +7,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRN+2wIPkWXZVk2aSj+z+2xGP6JkF0H8hqYPbtyuUIBq+yw6e6gopbV+d0nI6zkc5XYlQA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    :root {
+      --bg-color: rgba(10, 10, 30, 0.85);
+      --item-bg: rgba(30, 30, 60, 0.9);
+      --text-color: #fff;
+    }
+    [data-theme="dark"] {
+      --bg-color: rgba(10, 10, 30, 0.85);
+      --item-bg: rgba(30, 30, 60, 0.9);
+      --text-color: #fff;
+    }
+    [data-theme="light"] {
+      --bg-color: #f0f0f0;
+      --item-bg: #fff;
+      --text-color: #111;
+    }
     html, body {
       margin: 0;
       padding: 0;
@@ -14,10 +29,8 @@
       overflow-x: hidden;
       background: url('https://cdn.discordapp.com/attachments/855567929458556988/1361975356227190885/860DDB67-380F-4038-9EDB-7CCBD28B1A12.png?ex=6800b5e5&is=67ff6465&hm=9bc681f4ed48845aa98651a1ef0e94a32ad6f94a9607fd0e55cf3cb55e982cfc&') center center/cover no-repeat fixed;
       scroll-behavior: smooth;
-    }
-    body {
-      color: #fff;
-      text-align: center;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
     header img {
       max-height: 120px;
@@ -38,14 +51,10 @@
     }
     section {
       padding: 40px 20px;
-      transition: background 1s ease-in-out, color 1s ease-in-out;
-      background-color: rgba(10, 10, 30, 0.85);
+      background-color: var(--bg-color);
     }
-    #power {
-      background-color: rgba(20, 10, 40, 0.85);
-    }
-    #ability {
-      background-color: rgba(20, 10, 40, 0.85);
+    #power, #ability {
+      background-color: var(--bg-color);
     }
     h2.section-title {
       font-size: 2rem;
@@ -62,7 +71,7 @@
       justify-content: center;
     }
     .item {
-      background: rgba(30, 30, 60, 0.9);
+      background: var(--item-bg);
       border: 1px solid #8a2be2;
       border-radius: 10px;
       padding: 30px;
@@ -106,107 +115,124 @@
       box-shadow: 0 0 20px gold;
     }
     .buy-btn:hover {
-      background: linear-gradient(135deg, #444, #000);
       transform: scale(1.1);
-      box-shadow: 0 0 20px #555;
-    }
-    .popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #111;
-      color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      display: none;
-      z-index: 9999;
-      width: 80%;
-      max-width: 500px;
-    }
-    .popup.active {
-      display: block;
-    }
-    .popup .close {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      cursor: pointer;
-      font-size: 1.5rem;
     }
     footer {
-      margin-top: 60px;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      color: #ccc;
+      margin: 50px 0 20px;
       font-size: 0.9rem;
     }
-    footer a {
+    .links {
+      margin-top: 30px;
+    }
+    .links a {
       color: #f1c40f;
-      text-decoration: none;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #111;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      text-align: left;
+      position: relative;
+      color: white;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .dark-toggle {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      background: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
     }
   </style>
 </head>
-<body>
+<body data-theme="dark">
+  <div class="dark-toggle" onclick="toggleTheme()">Toggle Theme</div>
   <header>
-    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6800b34c&is=67ff61cc&hm=e66cb075c0cec49e2ab800be8c7268b8594ca8dd972b9aabc4ce3668e2f86c8e&"/>
+    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6800b34c&is=67ff61cc&hm=e66cb075c0cec49e2ab800be8c7268b8594ca8dd972b9aabc4ce3668e2f86c8e&">
     <h1>Perks Shop</h1>
   </header>
+
   <section id="power">
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
-      <div class="item">
-        <h3>VC Mod</h3>
-        <p>$15/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
-      <div class="item">
-        <h3>Mod</h3>
-        <p>$30/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
-      <div class="item">
-        <h3>Senior Mod</h3>
-        <p>$60/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
-      <div class="item">
-        <h3>Co-Owner</h3>
-        <p>$960/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
+      <div class="item"><h3>VC Mod</h3><p>$15/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Mod</h3><p>$30/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Senior Mod</h3><p>$60/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Co-Owner</h3><p>$960/month</p><button class="buy-btn">Subscribe</button></div>
     </div>
   </section>
+
   <section id="ability">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
-      <div class="item">
-        <h3>Image Perms</h3>
-        <p>$3/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
-      <div class="item">
-        <h3>Custom Role</h3>
-        <p>$3/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
+      <div class="item"><h3>Image Perms</h3><p>$3/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Custom Role</h3><p>$5/month</p><button class="buy-btn">Subscribe</button></div>
     </div>
   </section>
+
+  <div class="links">
+    <a onclick="showModal('tos')">Terms of Service</a>
+    <a onclick="showModal('privacy')">Privacy Policy</a>
+    <a href="https://discord.gg/sunni">Support Discord</a>
+  </div>
+
   <footer>
-    <p>© All rights reserved. Harlequin Shop by Joseph</p>
-    <p><a href="#" onclick="document.getElementById('tos').classList.add('active')">Terms of Service</a> | <a href="#" onclick="document.getElementById('privacy').classList.add('active')">Privacy Policy</a> | <a href="https://discord.gg/sunni" target="_blank">Support Discord</a></p>
+    &copy; All rights reserved to Joseph
   </footer>
 
-  <div class="popup" id="tos">
-    <span class="close" onclick="this.parentElement.classList.remove('active')">×</span>
-    <h2>Terms of Service</h2>
-    <p>These are placeholder terms of service. Customize as needed.</p>
+  <div class="modal" id="tos-modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModal('tos')">&times;</span>
+      <h2>Terms of Service</h2>
+      <p>By purchasing perks, you agree to comply with the rules and terms of our Discord server. All sales are final. Abuse or misuse of perks can lead to removal without refund. We reserve the right to revoke access at any time. Do not attempt to bypass server rules using perks.</p>
+    </div>
   </div>
 
-  <div class="popup" id="privacy">
-    <span class="close" onclick="this.parentElement.classList.remove('active')">×</span>
-    <h2>Privacy Policy</h2>
-    <p>These are placeholder privacy terms. Customize as needed.</p>
+  <div class="modal" id="privacy-modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModal('privacy')">&times;</span>
+      <h2>Privacy Policy</h2>
+      <p>Your data is only used to provide and manage your purchased perks. We do not share or sell your data. By using our service, you consent to this privacy policy. For any concerns, reach out via our support server.</p>
+    </div>
   </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.setAttribute('data-theme', body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+    function showModal(type) {
+      document.getElementById(`${type}-modal`).style.display = 'flex';
+    }
+    function hideModal(type) {
+      document.getElementById(`${type}-modal`).style.display = 'none';
+    }
+  </script>
 </body>
 </html>
