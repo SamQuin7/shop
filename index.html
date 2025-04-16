@@ -19,17 +19,36 @@
       text-align: center;
       scroll-behavior: smooth;
     }
+    header {
+      position: relative;
+    }
     header img {
       max-height: 120px;
       border-radius: 50%;
       margin: 20px auto 10px;
       display: block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    header img:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 20px #fff) brightness(1.2);
     }
     header h1 {
       color: #f1c40f;
       font-size: 2.5rem;
       text-shadow: 0 0 10px #fff;
       margin: 0;
+    }
+    .support {
+      margin: 10px;
+    }
+    .support a {
+      color: #00bfff;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+    .support a:hover {
+      text-shadow: 0 0 5px #00bfff;
     }
     section {
       transition: background 1s ease-in-out, color 1s ease-in-out;
@@ -93,38 +112,12 @@
       box-shadow: 0 4px 15px #00000066;
     }
     .buy-btn {
-      background: linear-gradient(45deg, #8a2be2, #4b0082);
-      color: #fff;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
       margin-top: 15px;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .buy-btn:hover {
-      background: linear-gradient(45deg, #4b0082, #8a2be2);
-      transform: scale(1.05);
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #bbb;
-    }
-    .chat-support {
-      margin-top: 50px;
-    }
-    .chat-support a {
-      color: #00ffff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .chat-support a:hover {
-      text-decoration: underline;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -132,6 +125,9 @@
   <header>
     <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6800b34c&is=67ff61cc&hm=e66cb075c0cec49e2ab800be8c7268b8594ca8dd972b9aabc4ce3668e2f86c8e&">
     <h1>Perks Shop</h1>
+    <div class="support">
+      <a href="https://discord.gg/sunni" target="_blank">Need help? Join our Discord</a>
+    </div>
   </header>
 
   <section id="power">
@@ -140,22 +136,22 @@
       <div class="item power">
         <h3>VC Mod</h3>
         <p>$15/month</p>
-        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" class="buy-btn">Subscribe</a>
+        <a class="buy-btn" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Mod</h3>
         <p>$30/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <a class="buy-btn" href="#">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Senior Mod</h3>
         <p>$60/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <a class="buy-btn" href="#">Subscribe</a>
       </div>
       <div class="item power">
         <h3>Co-Owner</h3>
         <p>$960/month</p>
-        <a href="#" class="buy-btn">Subscribe</a>
+        <a class="buy-btn" href="#">Subscribe</a>
       </div>
     </div>
   </section>
@@ -166,37 +162,14 @@
       <div class="item">
         <h3>Image Perms</h3>
         <p>$3/month</p>
-        <a href="#" class="buy-btn">Buy Now</a>
+        <a class="buy-btn" href="#">Buy</a>
       </div>
       <div class="item">
         <h3>Custom Role</h3>
         <p>$5/month</p>
-        <a href="#" class="buy-btn">Buy Now</a>
+        <a class="buy-btn" href="#">Buy</a>
       </div>
     </div>
   </section>
-
-  <div class="chat-support">
-    <p>Need help or have questions? <a href="https://discord.gg/your-server-link" target="_blank">Join our Discord</a></p>
-  </div>
-
-  <footer>
-    <p>© 2025 Harlequin VC Shop. All rights reserved.</p>
-    <p><a href="#" style="color:#999">Terms of Service</a> | <a href="#" style="color:#999">Privacy Policy</a></p>
-  </footer>
-
-  <script>
-    const powerSection = document.getElementById('power');
-    const abilitySection = document.getElementById('ability');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const abilityTop = abilitySection.offsetTop;
-      if (scrollY > abilityTop - 100) {
-        document.body.style.backgroundColor = '#0c0c1f';
-      } else {
-        document.body.style.backgroundColor = '#000011';
-      }
-    });
-  </script>
 </body>
 </html>
