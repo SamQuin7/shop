@@ -21,7 +21,7 @@
     section {
       transition: background 1s ease-in-out, color 1s ease-in-out;
       padding: 40px 20px;
-      background-color: rgba(10, 10, 30, 0.8); /* same background color for both */
+      background-color: rgba(10, 10, 30, 0.8);
     }
     header {
       padding: 20px;
@@ -80,7 +80,6 @@
       color: #e0e0ff;
     }
     .buy-btn {
-      background: linear-gradient(45deg, #8a2be2, #4b0082);
       color: #fff;
       padding: 12px 25px;
       border: none;
@@ -95,15 +94,20 @@
       transition: background 0.3s ease, transform 0.3s ease;
     }
     .buy-btn:hover {
-      background: linear-gradient(45deg, #4b0082, #8a2be2);
       transform: scale(1.05);
     }
-    .buy-btn.gold {
-      background: linear-gradient(45deg, #ffd700, #ffa500);
-      color: #000;
+    .power .buy-btn {
+      background: linear-gradient(45deg, #FFD700, #B8860B);
+      box-shadow: 0 0 20px #FFD700;
     }
-    .buy-btn.gold:hover {
-      background: linear-gradient(45deg, #ffa500, #ffd700);
+    .power .buy-btn:hover {
+      background: linear-gradient(45deg, #B8860B, #FFD700);
+    }
+    .ability .buy-btn {
+      background: linear-gradient(45deg, #8a2be2, #4b0082);
+    }
+    .ability .buy-btn:hover {
+      background: linear-gradient(45deg, #4b0082, #8a2be2);
     }
     footer {
       padding: 20px;
@@ -123,50 +127,50 @@
     <h1>🌌 Perks Shop 🌌</h1>
   </header>
 
-  <section>
+  <section class="power">
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
       <div class="item">
         <h3>VC Mod</h3>
         <p>$15/month</p>
-        <a href="#" class="buy-btn gold">Buy</a>
+        <a class="buy-btn" href="#">Buy Now</a>
       </div>
       <div class="item">
         <h3>Mod</h3>
         <p>$30/month</p>
-        <a href="#" class="buy-btn gold">Buy</a>
+        <a class="buy-btn" href="#">Buy Now</a>
       </div>
       <div class="item">
         <h3>Senior Mod</h3>
         <p>$60/month</p>
-        <a href="#" class="buy-btn gold">Buy</a>
+        <a class="buy-btn" href="#">Buy Now</a>
       </div>
       <div class="item">
         <h3>Co-Owner</h3>
         <p>$960/month</p>
-        <a href="#" class="buy-btn gold">Buy</a>
+        <a class="buy-btn" href="#">Buy Now</a>
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="ability">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
       <div class="item">
         <h3>Image Perms</h3>
         <p>$3/month</p>
-        <a href="#" class="buy-btn">Buy</a>
+        <a class="buy-btn" href="#">Buy Now</a>
       </div>
       <div class="item">
         <h3>Custom Role</h3>
         <p>$3/month</p>
-        <a href="#" class="buy-btn">Buy</a>
+        <a class="buy-btn" href="#">Buy Now</a>
       </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Harlequin Perks Shop. All rights reserved.
+    &copy; 2025 Harlequin VC Shop. All rights reserved.
   </footer>
 </body>
 </html>
