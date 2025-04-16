@@ -12,7 +12,7 @@
       padding: 0;
       font-family: 'Orbitron', sans-serif;
       overflow-x: hidden;
-      background: url('https://cdn.discordapp.com/attachments/855567929458556988/1361975356227190885/860DDB67-380F-4038-9EDB-7CCBD28B1A12.png?ex=6800b5e5&is=67ff6465&hm=9bc681f4ed48845aa98651a1ef0e94a32ad6f94a9607fd0e55cf3cb55e982cfc&') center center/cover no-repeat fixed;
+      background: url('https://media.giphy.com/media/tIeCLkB8geYtW/giphy.gif') center center/cover no-repeat fixed;
     }
     body {
       color: #fff;
@@ -102,78 +102,50 @@
       transform: scale(1.05);
       box-shadow: 0 0 15px #fff;
     }
-    .item.power .buy-btn {
-      background: linear-gradient(135deg, gold, orange);
-      color: #000;
-    }
-    .footer {
-      background: rgba(0, 0, 0, 0.7);
+    footer {
+      margin-top: 40px;
       padding: 20px;
+      background: rgba(0,0,0,0.6);
       font-size: 0.9rem;
     }
-    .support {
-      display: block;
+    .tos {
+      font-size: 0.8rem;
+      color: #aaa;
       margin-top: 10px;
-      color: #0af;
-      text-decoration: none;
     }
-    .support:hover {
-      text-decoration: underline;
+    .support-link {
+      color: #f1c40f;
+      display: inline-block;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6800b34c&is=67ff61cc&hm=e66cb075c0cec49e2ab800be8c7268b8594ca8dd972b9aabc4ce3668e2f86c8e&" />
+    <img src="https://cdn.discordapp.com/icons/123456789012345678/yourservericon.png" alt="Server Logo">
     <h1>Perks Shop</h1>
   </header>
 
-  <section id="power">
-    <h2 class="section-title">Power Perks</h2>
-    <div class="shop">
-      <div class="item power">
-        <h3>VC Mod</h3>
-        <p>$15/month</p>
-        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7WL69759605857328M76SHTY" target="_blank"><button class="buy-btn">Subscribe</button></a>
-      </div>
-      <div class="item power">
-        <h3>Mod</h3>
-        <p>$30/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
-      <div class="item power">
-        <h3>Senior Mod</h3>
-        <p>$60/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
-      <div class="item power">
-        <h3>Co-Owner</h3>
-        <p>$960/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
-    </div>
-  </section>
+  <!-- Sections here -->
 
-  <section id="ability">
-    <h2 class="section-title">Ability Perks</h2>
-    <div class="shop">
-      <div class="item">
-        <h3>Image Perms</h3>
-        <p>$3/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
-      <div class="item">
-        <h3>Custom Role</h3>
-        <p>$3/month</p>
-        <button class="buy-btn">Subscribe</button>
-      </div>
+  <footer>
+    <div>© All rights reserved to Joseph</div>
+    <div class="tos">
+      <p>By purchasing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
     </div>
-  </section>
-
-  <footer class="footer">
-    <a class="support" href="https://discord.gg/sunni" target="_blank">Support Server</a>
-    <p>© Joseph. All rights reserved.</p>
-    <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+    <div><a class="support-link" href="https://discord.gg/sunni" target="_blank">Support Discord</a></div>
   </footer>
+
+  <audio id="hoverSound" src="https://www.myinstants.com/media/sounds/pop-up-katana.mp3" preload="auto"></audio>
+  <script>
+    const buttons = document.querySelectorAll('.buy-btn');
+    const sound = document.getElementById('hoverSound');
+    buttons.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        sound.currentTime = 0;
+        sound.play();
+      });
+    });
+  </script>
 </body>
 </html>
