@@ -99,7 +99,7 @@
       font-size: 1.1rem;
       color: #e0e0e0; /* Light gray for description */
     }
-    .buy-btn {
+    .paypal-btn {
       background: var(--highlight-color);
       border: none;
       color: black;
@@ -110,7 +110,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    .buy-btn:hover {
+    .paypal-btn:hover {
       background: gold; /* Brighten on hover */
       transform: scale(1.1);
       box-shadow: 0 0 20px gold;
@@ -216,20 +216,19 @@
       <div class="item">
         <h3>VC Mod</h3>
         <p>$15/month</p>
-        <button class="buy-btn">Subscribe</button>
         <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY"></div>
       </div>
-      <div class="item"><h3>Mod</h3><p>$30/month</p><button class="buy-btn">Subscribe</button></div>
-      <div class="item"><h3>Senior Mod</h3><p>$60/month</p><button class="buy-btn">Subscribe</button></div>
-      <div class="item"><h3>Co-Owner</h3><p>$960/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Mod</h3><p>$30/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-2"></div></div>
+      <div class="item"><h3>Senior Mod</h3><p>$60/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-3"></div></div>
+      <div class="item"><h3>Co-Owner</h3><p>$960/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-4"></div></div>
     </div>
   </section>
 
   <section id="ability">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
-      <div class="item"><h3>Image Perms</h3><p>$3/month</p><button class="buy-btn">Subscribe</button></div>
-      <div class="item"><h3>Custom Role</h3><p>$5/month</p><button class="buy-btn">Subscribe</button></div>
+      <div class="item"><h3>Image Perms</h3><p>$3/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-5"></div></div>
+      <div class="item"><h3>Custom Role</h3><p>$5/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-6"></div></div>
     </div>
   </section>
 
@@ -288,26 +287,36 @@
     }
   </script>
 
-  <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY"></div>
   <script src="https://www.paypal.com/sdk/js?client-id=AT4atw1RothjUUBfkPZeYSRSsPjnVeTs9m5njOraRZGpMh2ZnfCbT5QstG1kSk0RPs5kJjn9sUBS7X2Q&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
   <script>
-    paypal.Buttons({
+    const plans = [
+      { id: 'P-0TK23372HF1739735NAAKFDY', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY' },
+      { id: 'P-0TK23372HF1739735NAAKFDY-2', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-2' },
+      { id: 'P-0TK23372HF1739735NAAKFDY-3', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-3' },
+      { id: 'P-0TK23372HF1739735NAAKFDY-4', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-4' },
+      { id: 'P-0TK23372HF1739735NAAKFDY-5', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-5' },
+      { id: 'P-0TK23372HF1739735NAAKFDY-6', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-6' },
+    ];
+
+    plans.forEach(plan => {
+      paypal.Buttons({
         style: {
-            shape: 'pill',
-            color: 'gold',
-            layout: 'vertical',
-            label: 'subscribe'
+          shape: 'pill',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
         },
         createSubscription: function(data, actions) {
           return actions.subscription.create({
             /* Creates the subscription */
-            plan_id: 'P-0TK23372HF1739735NAAKFDY'
+            plan_id: plan.id
           });
         },
         onApprove: function(data, actions) {
           alert(data.subscriptionID); // You can add optional success message for the subscriber here
         }
-    }).render('#paypal-button-container-P-0TK23372HF1739735NAAKFDY'); // Renders the PayPal button
+      }).render(plan.container); // Renders the PayPal button
+    });
   </script>
 </body>
 </html>
