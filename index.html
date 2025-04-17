@@ -14,6 +14,7 @@
       --highlight-color: gold; /* Gold for highlights */
       --neon-silver: #C0C0C0; /* Neon silver color */
       --light-neon-silver: #A0A0A0; /* Light mode neon silver color */
+      --neon-gold: #FFD700; /* Neon gold color */
     }
     [data-theme="dark"] {
       --bg-color: #000;
@@ -30,6 +31,7 @@
       --highlight-color: gold; /* Gold for highlights */
       --neon-silver: #C0C0C0; /* Neon silver color */
       --light-neon-silver: #555; /* Darker silver for light mode */
+      --neon-gold: #FFD700; /* Neon gold color for light mode */
     }
     html, body {
       margin: 0;
@@ -72,10 +74,10 @@
       text-align: center; /* Center the section titles */
     }
     #ability h2.section-title {
-      color: var(--neon-silver); /* Change Ability Perks title to neon silver */
+      color: var(--neon-gold); /* Change Ability Perks title to neon gold in light mode */
     }
     #ability .item h3 {
-      color: var(--neon-silver); /* Change Ability Perks item titles to neon silver */
+      color: var(--text-color); /* Change Ability Perks item titles to text color */
     }
     .shop {
       max-width: 1000px;
@@ -108,7 +110,7 @@
     }
     .item p {
       font-size: 1.1rem;
-      color: #e0e0e0; /* Light gray for description */
+      color: var(--text-color); /* Use text color for description */
     }
     .paypal-btn {
       background: var(--highlight-color);
@@ -159,7 +161,6 @@
       width: 80%;
       max-width: 600px;
       text-align: left;
-      position: relative;
       color: white;
     }
     .close {
@@ -286,6 +287,18 @@
     function toggleTheme() {
       const body = document.body;
       body.setAttribute('data-theme', body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      const items = document.querySelectorAll('#ability .item h3, #ability .item p');
+      if (body.getAttribute('data-theme') === 'light') {
+        items.forEach(item => {
+          item.style.color = 'black'; // Set item text color to black in light mode
+        });
+        document.querySelector('#ability h2.section-title').style.color = 'var(--neon-gold)'; // Set title to neon gold in light mode
+      } else {
+        items.forEach(item => {
+          item.style.color = ''; // Reset item text color to default
+        });
+        document.querySelector('#ability h2.section-title').style.color = 'var(--neon-silver)'; // Reset title color to neon silver in dark mode
+      }
     }
     function showModal(type) {
       document.getElementById(`${type}-modal`).style.display = 'flex';
