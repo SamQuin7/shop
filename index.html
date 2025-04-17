@@ -12,18 +12,21 @@
       --item-bg: #222; /* Dark gray for items */
       --text-color: #fff; /* White text */
       --highlight-color: gold; /* Gold for highlights */
+      --neon-silver: #C0C0C0; /* Neon silver color */
     }
     [data-theme="dark"] {
       --bg-color: #000;
       --item-bg: #222;
       --text-color: #fff;
       --highlight-color: gold;
+      --neon-silver: #C0C0C0;
     }
     [data-theme="light"] {
       --bg-color: #fff; /* White background */
       --item-bg: #f0f0f0; /* Light gray for items */
       --text-color: #000; /* Black text */
       --highlight-color: gold; /* Gold for highlights */
+      --neon-silver: #C0C0C0; /* Neon silver color */
     }
     html, body {
       margin: 0;
@@ -65,6 +68,12 @@
       text-shadow: 0 0 8px var(--highlight-color);
       text-align: center; /* Center the section titles */
     }
+    #ability h2.section-title {
+      color: var(--neon-silver); /* Change Ability Perks title to neon silver */
+    }
+    #ability .item h3 {
+      color: var(--neon-silver); /* Change Ability Perks item titles to neon silver */
+    }
     .shop {
       max-width: 1000px;
       margin: 0 auto;
@@ -92,7 +101,6 @@
     }
     .item h3 {
       margin: 10px 0;
-      color: var(--highlight-color);
       font-size: 1.5rem;
     }
     .item p {
@@ -206,7 +214,7 @@
 <body data-theme="dark">
   <div class="dark-toggle" onclick="toggleTheme()">Toggle Theme</div>
   <header>
-    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=68015c0c&is=68000a8c&hm=f397126d98840a6709f7b5e0470ea8d189d4fa78b0132c7966cc904aa3c732bd&">
+    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=680204cc&is=6800b34c&hm=d4a489e230e6bc8af27d62def7ce837db40cf62320e18582ce390f0e64291415&">
     <h1>Perks Shop</h1>
   </header>
 
