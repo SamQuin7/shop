@@ -19,9 +19,9 @@
       --bg-color: #000;
       --item-bg: #222;
       --text-color: #fff;
-      --highlight-color: gold;
-      --neon-silver: #C0C0C0;
-      --light-neon-silver: #A0A0A0;
+      --highlight-color: gold; /* Gold for highlights */
+      --neon-silver: #C0C0C0; /* Neon silver color */
+      --light-neon-silver: #A0A0A0; /* Light mode neon silver color */
     }
     [data-theme="light"] {
       --bg-color: #fff; /* White background */
@@ -87,11 +87,11 @@
     }
     .item {
       background: var(--item-bg);
-      border: 1px solid var(--highlight-color);
+      border: 1px solid var(--neon-silver); /* Change border to neon silver */
       border-radius: 10px;
       padding: 20px; /* Reduced padding for better fit */
       width: 300px;
-      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.5); /* Gold shadow */
+      box-shadow: 0 4px 25px rgba(192, 192, 192, 0.5); /* Silver shadow */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -100,7 +100,7 @@
     }
     .item:hover {
       transform: translateY(-10px);
-      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.7); /* Gold shadow on hover */
+      box-shadow: 0 8px 30px rgba(192, 192, 192, 0.7); /* Silver shadow on hover */
     }
     .item h3 {
       margin: 10px 0;
