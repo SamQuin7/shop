@@ -5,41 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Perks Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRN+2wIPkWXZVk2aSj+z+2xGP6JkF0H8hqYPbtyuUIBq+yw6e6gopbV+d0nI6zkc5XYlQA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     :root {
-      --bg-color: #000; /* Black background */
-      --item-bg: #222; /* Dark gray for items */
-      --text-color: #fff; /* White text */
-      --highlight-color: gold; /* Gold for highlights */
-      --neon-silver: #C0C0C0; /* Neon silver color */
-      --light-neon-silver: #A0A0A0; /* Light mode neon silver color */
-      --neon-gold: #FFD700; /* Neon gold color */
-    }
-    [data-theme="dark"] {
       --bg-color: #000;
       --item-bg: #222;
       --text-color: #fff;
-      --highlight-color: gold; /* Gold for highlights */
-      --neon-silver: #C0C0C0; /* Neon silver color */
-      --light-neon-silver: #A0A0A0; /* Light mode neon silver color */
-    }
-    [data-theme="light"] {
-      --bg-color: #fff; /* White background */
-      --item-bg: #f0f0f0; /* Light gray for items */
-      --text-color: #000; /* Black text */
-      --highlight-color: gold; /* Gold for highlights */
-      --neon-silver: #C0C0C0; /* Neon silver color */
-      --light-neon-silver: #555; /* Darker silver for light mode */
-      --neon-gold: #FFD700; /* Neon gold color for light mode */
+      --highlight-color: gold;
+      --neon-silver: #C0C0C0;
+      --light-neon-silver: #A0A0A0;
+      --neon-gold: #FFD700;
     }
     html, body {
       margin: 0;
       padding: 0;
       font-family: 'Orbitron', sans-serif;
-      overflow-x: hidden;
       background-color: var(--bg-color);
       color: var(--text-color);
+      overflow-x: hidden;
     }
     header img {
       max-height: 120px;
@@ -57,30 +40,23 @@
       font-size: 2.5rem;
       text-shadow: 0 0 10px var(--highlight-color);
       margin: 0;
-      text-align: center; /* Center the main title */
+      text-align: center;
     }
     section {
       padding: 40px 20px;
-      background-color: var(--bg-color);
-    }
-    #power, #ability, #support {
-      background-color: var(--bg-color);
     }
     h2.section-title {
       font-size: 2rem;
       margin-bottom: 30px;
-      text-align: center; /* Center the section titles */
+      text-align: center;
     }
     #power h2.section-title {
-      color: #102F82; /* Power Perks title color */
-      text-shadow: 0 0 8px #102F82, 0 0 20px #102F82; /* Neon effect */
+      color: #102F82;
+      text-shadow: 0 0 8px #102F82, 0 0 20px #102F82;
     }
     #ability h2.section-title {
-      color: #459AD8; /* Ability Perks title color */
-      text-shadow: 0 0 8px #459AD8, 0 0 20px #459AD8; /* Neon effect */
-    }
-    #ability .item h3 {
-      color: var(--text-color); /* Change Ability Perks item titles to text color */
+      color: #459AD8;
+      text-shadow: 0 0 8px #459AD8, 0 0 20px #459AD8;
     }
     .shop {
       max-width: 1000px;
@@ -92,183 +68,48 @@
     }
     .item {
       background: var(--item-bg);
-      border: 1px solid var(--neon-silver); /* Change border to neon silver */
+      border: 1px solid var(--neon-silver);
       border-radius: 10px;
-      padding: 20px; /* Reduced padding for better fit */
+      padding: 20px;
       width: 300px;
-      box-shadow: 0 4px 25px rgba(192, 192, 192, 0.5); /* Silver shadow */
+      box-shadow: 0 4px 25px rgba(192, 192, 192, 0.5);
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center; /* Center the text */
+      text-align: center;
+      position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .item:hover {
       transform: translateY(-10px);
-      box-shadow: 0 8px 30px rgba(192, 192, 192, 0.7); /* Silver shadow on hover */
+      box-shadow: 0 8px 30px rgba(192, 192, 192, 0.7);
     }
     .item h3 {
       margin: 10px 0;
       font-size: 1.5rem;
     }
-    .item p {
-      font-size: 1.1rem;
-      color: var(--text-color); /* Use text color for description */
-    }
-    .paypal-btn {
-      background: var(--highlight-color);
-      border: none;
-      color: black;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 5px;
-      margin-top: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .paypal-btn:hover {
-      background: gold; /* Brighten on hover */
-      transform: scale(1.1);
-      box-shadow: 0 0 20px gold;
-    }
-    footer {
-      margin: 50px 0 20px;
-      font-size: 0.9rem;
-      text-align: center; /* Center footer text */
-    }
-    .links {
-      margin-top: 30px;
-      text-align: center; /* Center the links */
-    }
-    .links a {
-      color: var(--highlight-color);
-      margin: 0 10px;
-      cursor: pointer;
-    }
-    .modal {
+    .description {
       display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+      margin-top: 10px;
+      font-size: 1rem;
+      color: var(--text-color);
     }
-    .modal-content {
-      background: #111;
-      padding: 30px;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 600px;
-      text-align: left;
-      color: white;
-    }
-    .close {
+    .question-icon {
       position: absolute;
       top: 10px;
       right: 15px;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    .dark-toggle {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      background: #333;
-      color: #fff;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-    .slider {
-      width: 100%;
-      margin-top: 20px;
-    }
-    .donation-amount {
-      margin-top: 10px;
-      font-size: 1.2rem;
       color: var(--highlight-color);
-    }
-    /* Slider styles */
-    input[type="range"] {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 8px; /* Height of the slider track */
-      background: #ddd; /* Track color */
-      border-radius: 5px; /* Rounded track */
-      outline: none; /* Remove outline */
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none; /* Remove default styling */
-      appearance: none; /* Remove default styling */
-      width: 20px; /* Width of the slider thumb */
-      height: 20px; /* Height of the slider thumb */
-      border-radius: 50%; /* Make thumb circular */
-      background: gold; /* Thumb color */
-      cursor: pointer; /* Pointer cursor on hover */
-    }
-
-    input[type="range"]::-moz-range-thumb {
-      width: 20px; /* Width of the slider thumb */
-      height: 20px; /* Height of the slider thumb */
-      border-radius: 50%; /* Make thumb circular */
-      background: gold; /* Thumb color */
-      cursor: pointer; /* Pointer cursor on hover */
-    }
-
-    /* Mobile Optimization */
-    @media (max-width: 768px) {
-      .shop {
-        flex-direction: column;
-        align-items: center;
-      }
-      .item {
-        width: 90%; /* Make items take up more width on small screens */
-        padding: 15px; /* Further reduce padding */
-      }
-      header h1 {
-        font-size: 2rem; /* Adjust header size */
-      }
-      h2.section-title {
-        font-size: 1.5rem; /* Adjust section title size */
-      }
-      .item h3 {
-        font-size: 1.3rem; /* Adjust item title size */
-      }
-      .item p {
-        font-size: 1rem; /* Adjust item description size */
-      }
-    }
-    .tooltip {
-      display: none;
-      position: absolute;
-      top: 30px;
-      left: 0;
-      background-color: #f9f9f9;
-      border: 1px solid #ccc;
-      padding: 10px;
-      z-index: 1;
-      width: 250px;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .question-mark {
       cursor: pointer;
-      margin-left: 5px;
-      color: blue;
-      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .question-icon:hover {
+      color: var(--neon-gold);
     }
   </style>
 </head>
-<body data-theme="dark">
-  <div class="dark-toggle" onclick="toggleTheme()">Toggle Theme</div>
+<body>
   <header>
-    <img src="https://cdn.discordapp.com/attachments/855567929458556988/1361972566289289297/image_2025-04-16_035222854-removebg-preview.png?ex=6804a7cc&is=6803564c&hm=8f66a9abcd3e22f3693aed4b8bca6404c534d9147b73a787b0cc9a8b0c06acb9&">
+    <img src="https://i.imgur.com/yourimage.png" alt="Shop Icon">
     <h1>Perks Shop</h1>
   </header>
 
@@ -276,28 +117,27 @@
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
       <div class="item">
-        <h3>VC Mod <span class="question-mark" onclick="toggleTooltip('vcModTooltip')">?</span></h3>
-        <div id="vcModTooltip" class="tooltip">Gain control over voice channels with the ability to mute, deafen, and move members between channels. Keep the conversation flowing smoothly.</div>
-        <p>$15/month</p>
-        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY"></div>
+        <i class="fas fa-question-circle question-icon" onclick="toggleDescription(this)"></i>
+        <h3>VC Mod</h3>
+        <div class="description">Gain control over voice channels with the ability to mute, deafen, and move members between channels. Keep the conversation flowing smoothly.</div>
       </div>
+
       <div class="item">
-        <h3>Mod <span class="question-mark" onclick="toggleTooltip('modTooltip')">?</span></h3>
-        <div id="modTooltip" class="tooltip">Unlock powerful moderation tools: jail or free members, delete messages, view server logs (including deleted messages), timeout users, and manage image permissions. Includes all VC Mod abilities.</div>
-        <p>$30/month</p>
-        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-2"></div>
+        <i class="fas fa-question-circle question-icon" onclick="toggleDescription(this)"></i>
+        <h3>Mod</h3>
+        <div class="description">Unlock powerful moderation tools: jail or free members, delete messages, view server logs (including deleted messages), timeout users, and manage image permissions. Includes all VC Mod abilities.</div>
       </div>
+
       <div class="item">
-        <h3>Senior Mod <span class="question-mark" onclick="toggleTooltip('seniorModTooltip')">?</span></h3>
-        <div id="seniorModTooltip" class="tooltip">Step up as a Senior Mod with access to everything from Mod and VC Mod, plus the added authority to ban members and demote users. Serious power for serious responsibility.</div>
-        <p>$60/month</p>
-        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-3"></div>
+        <i class="fas fa-question-circle question-icon" onclick="toggleDescription(this)"></i>
+        <h3>Senior Mod</h3>
+        <div class="description">Step up as a Senior Mod with access to everything from Mod and VC Mod, plus the added authority to ban members and demote users. Serious power for serious responsibility.</div>
       </div>
+
       <div class="item">
-        <h3>Head Administrator <span class="question-mark" onclick="toggleTooltip('headAdminTooltip')">?</span></h3>
-        <div id="headAdminTooltip" class="tooltip">The highest level of control. All powers from every role—VC Mod, Mod, and Senior Mod—are yours. Nothing is off-limits.</div>
-        <p>$300/month</p>
-        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-4"></div>
+        <i class="fas fa-question-circle question-icon" onclick="toggleDescription(this)"></i>
+        <h3>Head Administrator</h3>
+        <div class="description">The highest level of control. All powers from every role—VC Mod, Mod, and Senior Mod—are yours. Nothing is off-limits.</div>
       </div>
     </div>
   </section>
@@ -306,85 +146,24 @@
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
       <div class="item">
-        <h3>Image Perms <span class="question-mark" onclick="toggleTooltip('mediaPermsTooltip')">?</span></h3>
-        <div id="mediaPermsTooltip" class="tooltip">Share your world! This role lets you post images and videos, stream, and turn on your camera. Express yourself with no limits (within server rules).</div>
-        <p>$3/month</p>
-        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-5"></div>
+        <i class="fas fa-question-circle question-icon" onclick="toggleDescription(this)"></i>
+        <h3>Media Perms</h3>
+        <div class="description">Share your world! This role lets you post images and videos, stream, and turn on your camera. Express yourself with no limits (within server rules).</div>
       </div>
+
       <div class="item">
-        <h3>Custom Role <span class="question-mark" onclick="toggleTooltip('customRoleTooltip')">?</span></h3>
-        <div id="customRoleTooltip" class="tooltip">Craft a role that’s uniquely you. Pick any color, any symbol, and any font. Let your imagination run wild—just keep it within the server rules.</div>
-        <p>$5/month</p>
-        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-6"></div>
+        <i class="fas fa-question-circle question-icon" onclick="toggleDescription(this)"></i>
+        <h3>Custom Role</h3>
+        <div class="description">Craft a role that’s uniquely you. Pick any color, any symbol, and any font. Let your imagination run wild—just keep it within the server rules.</div>
       </div>
     </div>
   </section>
-
-  <section id="support">
-    <h2 class="section-title">Support Us</h2>
-    <div class="shop">
-      <div class="item">
-        <h3>Donation</h3>
-        <p>Your support helps us maintain the server!</p>
-        <input type="range" min="1" max="500" value="1" class="slider" id="donationSlider" oninput="updateDonationAmount(this.value)">
-        <div class="donation-amount" id="donationAmount">$1</div>
-        <button class="buy-btn">Donate</button>
-      </div>
-    </div>
-  </section>
-
-  <div class="links">
-    <a onclick="showModal('tos')">Terms of Service</a>
-    <a onclick="showModal('privacy')">Privacy Policy</a>
-    <a href="https://discord.gg/sunni">Support Discord</a>
-  </div>
-
-  <footer>
-    &copy; All rights reserved to Joseph
-  </footer>
-
-  <div class="modal" id="tos-modal">
-    <div class="modal-content">
-      <span class="close" onclick="hideModal('tos')">&times;</span>
-      <h2>Terms of Service</h2>
-      <p>By purchasing perks, you agree to comply with the rules and terms of our Discord server. All sales are final. Abuse or misuse of perks can lead to removal without refund. We reserve the right to revoke access at any time. Do not attempt to bypass server rules using perks.</p>
-    </div>
-  </div>
-
-  <div class="modal" id="privacy-modal">
-    <div class="modal-content">
-      <span class="close" onclick="hideModal('privacy')">&times;</span>
-      <h2>Privacy Policy</h2>
-      <p>Your data is only used to provide and manage your purchased perks. We do not share or sell your data. By using our service, you consent to this privacy policy. For any concerns, reach out via our support server.</p>
-    </div>
-  </div>
 
   <script>
-    function toggleTheme() {
-      const body = document.body;
-      body.setAttribute('data-theme', body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-      const items = document.querySelectorAll('#ability .item h3, #ability .item p');
-      if (body.getAttribute('data-theme') === 'light') {
-        items.forEach(item => {
-          item.style.color = 'black'; // Set item text color to black in light mode
-        });
-        document.querySelector('#ability h2.section-title').style.color = 'var(--neon-gold)'; // Set title to neon gold in light mode
-      } else {
-        items.forEach(item => {
-          item.style.color = ''; // Reset item text color to default
-        });
-        document.querySelector('#ability h2.section-title').style.color = 'var(--neon-silver)'; // Reset title color to neon silver in dark mode
-      }
+    function toggleDescription(icon) {
+      const desc = icon.parentElement.querySelector('.description');
+      desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
     }
-    function showModal(type) {
-      document.getElementById(`${type}-modal`).style.display = 'flex';
-    }
-    function hideModal(type) {
-      document.getElementById(`${type}-modal`).style.display = 'none';
-    }
-    function updateDonationAmount(value) {
-      document.getElementById('donationAmount').textContent = `$${value}`;
-    }
-    function toggleTooltip(id) {
-      const tooltip = document.getElementById(id);
-      tooltip.style.display = tooltip.style.display === 'none' || tooltip.style.display === '' ? 'block' :
+  </script>
+</body>
+</html>
