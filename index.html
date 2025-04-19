@@ -244,6 +244,25 @@
         font-size: 1rem; /* Adjust item description size */
       }
     }
+    .tooltip {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      z-index: 1;
+      width: 250px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .question-mark {
+      cursor: pointer;
+      margin-left: 5px;
+      color: blue;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body data-theme="dark">
@@ -257,21 +276,47 @@
     <h2 class="section-title">Power Perks</h2>
     <div class="shop">
       <div class="item">
-        <h3>VC Mod</h3>
+        <h3>VC Mod <span class="question-mark" onclick="toggleTooltip('vcModTooltip')">?</span></h3>
+        <div id="vcModTooltip" class="tooltip">Gain control over voice channels with the ability to mute, deafen, and move members between channels. Keep the conversation flowing smoothly.</div>
         <p>$15/month</p>
         <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY"></div>
       </div>
-      <div class="item"><h3>Mod</h3><p>$30/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-2"></div></div>
-      <div class="item"><h3>Senior Mod</h3><p>$60/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-3"></div></div>
-      <div class="item"><h3>Head-Administrator</h3><p>$300/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-4"></div></div>
+      <div class="item">
+        <h3>Mod <span class="question-mark" onclick="toggleTooltip('modTooltip')">?</span></h3>
+        <div id="modTooltip" class="tooltip">Unlock powerful moderation tools: jail or free members, delete messages, view server logs (including deleted messages), timeout users, and manage image permissions. Includes all VC Mod abilities.</div>
+        <p>$30/month</p>
+        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-2"></div>
+      </div>
+      <div class="item">
+        <h3>Senior Mod <span class="question-mark" onclick="toggleTooltip('seniorModTooltip')">?</span></h3>
+        <div id="seniorModTooltip" class="tooltip">Step up as a Senior Mod with access to everything from Mod and VC Mod, plus the added authority to ban members and demote users. Serious power for serious responsibility.</div>
+        <p>$60/month</p>
+        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-3"></div>
+      </div>
+      <div class="item">
+        <h3>Head Administrator <span class="question-mark" onclick="toggleTooltip('headAdminTooltip')">?</span></h3>
+        <div id="headAdminTooltip" class="tooltip">The highest level of control. All powers from every role—VC Mod, Mod, and Senior Mod—are yours. Nothing is off-limits.</div>
+        <p>$300/month</p>
+        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-4"></div>
+      </div>
     </div>
   </section>
 
   <section id="ability">
     <h2 class="section-title">Ability Perks</h2>
     <div class="shop">
-      <div class="item"><h3>Image Perms</h3><p>$3/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-5"></div></div>
-      <div class="item"><h3>Custom Role</h3><p>$5/month</p><div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-6"></div></div>
+      <div class="item">
+        <h3>Image Perms <span class="question-mark" onclick="toggleTooltip('mediaPermsTooltip')">?</span></h3>
+        <div id="mediaPermsTooltip" class="tooltip">Share your world! This role lets you post images and videos, stream, and turn on your camera. Express yourself with no limits (within server rules).</div>
+        <p>$3/month</p>
+        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-5"></div>
+      </div>
+      <div class="item">
+        <h3>Custom Role <span class="question-mark" onclick="toggleTooltip('customRoleTooltip')">?</span></h3>
+        <div id="customRoleTooltip" class="tooltip">Craft a role that’s uniquely you. Pick any color, any symbol, and any font. Let your imagination run wild—just keep it within the server rules.</div>
+        <p>$5/month</p>
+        <div id="paypal-button-container-P-0TK23372HF1739735NAAKFDY-6"></div>
+      </div>
     </div>
   </section>
 
@@ -340,38 +385,6 @@
     function updateDonationAmount(value) {
       document.getElementById('donationAmount').textContent = `$${value}`;
     }
-  </script>
-
-  <script src="https://www.paypal.com/sdk/js?client-id=AT4atw1RothjUUBfkPZeYSRSsPjnVeTs9m5njOraRZGpMh2ZnfCbT5QstG1kSk0RPs5kJjn9sUBS7X2Q&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-  <script>
-    const plans = [
-      { id: 'P-0TK23372HF1739735NAAKFDY', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY' },
-      { id: 'P-0TK23372HF1739735NAAKFDY-2', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-2' },
-      { id: 'P-0TK23372HF1739735NAAKFDY-3', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-3' },
-      { id: 'P-0TK23372HF1739735NAAKFDY-4', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-4' },
-      { id: 'P-0TK23372HF1739735NAAKFDY-5', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-5' },
-      { id: 'P-0TK23372HF1739735NAAKFDY-6', container: '#paypal-button-container-P-0TK23372HF1739735NAAKFDY-6' },
-    ];
-
-    plans.forEach(plan => {
-      paypal.Buttons({
-        style: {
-          shape: 'pill',
-          color: 'gold',
-          layout: 'vertical',
-          label: 'subscribe'
-        },
-        createSubscription: function(data, actions) {
-          return actions.subscription.create({
-            /* Creates the subscription */
-            plan_id: plan.id
-          });
-        },
-        onApprove: function(data, actions) {
-          alert(data.subscriptionID); // You can add optional success message for the subscriber here
-        }
-      }).render(plan.container); // Renders the PayPal button
-    });
-  </script>
-</body>
-</html>
+    function toggleTooltip(id) {
+      const tooltip = document.getElementById(id);
+      tooltip.style.display = tooltip.style.display === 'none' || tooltip.style.display === '' ? 'block' :
